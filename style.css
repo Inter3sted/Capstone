@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    display: flex;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    flex: 1;
+    padding-left: 60px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: lightblue;
+}
+
+nav ul li ul li {
+    display: none;
+}
+
+nav ul ul li:hover ul li {
+    display: flex;
+}
+
+iframe.center {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    margin-left: 30px;
+}
+
+.center {
+    padding: 35px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+}
+
+@media (min-width: 375px) and (max-width: 1080px) {}
