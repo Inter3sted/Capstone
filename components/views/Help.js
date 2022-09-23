@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default () => html `
+export default (state) => html `
 <p id="Help">
   <form action="https://formspree.io/f/xjvzwbbp" method="POST">
         <label>
