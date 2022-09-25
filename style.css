@@ -1,30 +1,113 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-header {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Everything with .glass is glass morphism */
+
+.glass {
+    position: relative;
     display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+    margin: auto;
+}
+
+.glass .cards {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+.glass .cards .therein {
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+    font-size: 2em;
+    pointer-events: auto;
+    position: absolute;
+}
+
+.cards a {
+    transition: 0.5s;
+}
+
+
+/* Might keep this hover effect if can figure out how to keep image after */
+
+.cards img:hover {
+    transform: translateY(15px);
+    opacity: 0;
+    transition: 0.25s;
+}
+
+.cards img {
+    transform: translateY(0px);
+    opacity: 100;
+}
+
+.glass .cards:hover .therein {
+    transform: translateY(0px);
+    opacity: 100;
+}
+
+.glass .cards .therein a {
+    padding: 8px 20px;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.glass .cards .therein h1 {
+    justify-content: space-between;
+    opacity: 25%;
+}
+
+.cards img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: column-reverse;
 }
 
 nav {
-    width: 100%;
-    height: 10vh;
-    margin: auto;
     display: flex;
+    height: 100%;
+    justify-content: flex-start;
     align-items: center;
-    position: fixed;
-    flex: 1;
+    position: relative;
+    background-color: black;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
     list-style: none;
 }
 
-nav ul li {
+nav li {
+    display: block;
     float: left;
     width: 90px;
     height: 40px;
@@ -33,23 +116,16 @@ nav ul li {
     font-size: 15px;
 }
 
-nav ul li a {
+nav li a {
     text-decoration: none;
-    color: black;
+    color: white;
     display: block;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 nav ul li a:hover {
-    background-color: lightblue;
-}
-
-nav ul li ul li {
-    display: none;
-}
-
-nav ul ul li:hover ul li {
-    display: flex;
+    background-color: white;
+    color: black;
 }
 
 iframe.center {
@@ -63,8 +139,8 @@ main h1 {
 }
 
 form {
+    padding: 1rem;
     text-align: center;
-    margin-left: 30px;
 }
 
 .center {
@@ -76,4 +152,9 @@ footer {
     padding: 30px;
 }
 
-@media (min-width: 375px) and (max-width: 1080px) {}
+@media(max-width: 375px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
