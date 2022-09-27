@@ -147,10 +147,80 @@ form {
     padding: 35px;
 }
 
+h3 {
+    text-align: center;
+    padding: 5px;
+    margin-top: 100px;
+}
+
 footer {
     text-align: center;
     padding: 30px;
 }
+
+
+/* FAQ section */
+
+.faqp {
+    text-align: center;
+    padding: 3px;
+}
+
+form {
+    margin-top: 100px;
+}
+
+
+/*Pseudo FAQ drop-down menus*/
+
+.dropdown {
+    float: none;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    float: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Media query for iPhone 6/7/8 scale */
 
 @media(max-width: 375px) {
     nav {
