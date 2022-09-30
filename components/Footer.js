@@ -1,5 +1,5 @@
 import html from "html-literal";
 
 export default (state) => html `<footer>
-        <p> &copy; Drone Delivery Service</p>
+        <p class ="outer"> &copy; Drone Delivery Service</p>
     </footer>`;

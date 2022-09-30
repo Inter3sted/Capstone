@@ -4,13 +4,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(45deg, white, aliceblue);
+    background-repeat: no-repeat;
 }
 
 
-/* Everything with .glass is glass morphism */
+/* Everything with glass morphism */
 
 .glass {
     position: relative;
@@ -48,12 +55,12 @@ body {
     position: absolute;
 }
 
+
+/* Cards hover effect */
+
 .cards a {
     transition: 0.5s;
 }
-
-
-/* Might keep this hover effect if can figure out how to keep image after */
 
 .cards img:hover {
     transform: translateY(15px);
@@ -93,6 +100,9 @@ body {
     flex-direction: column-reverse;
 }
 
+
+/* nav bar */
+
 nav {
     display: flex;
     height: 100%;
@@ -101,6 +111,9 @@ nav {
     position: relative;
     background-color: black;
 }
+
+
+/* Removes the dot before each nav element*/
 
 ul {
     list-style: none;
@@ -128,12 +141,6 @@ nav ul li a:hover {
     color: black;
 }
 
-iframe.center {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 main h1 {
     text-align: center;
 }
@@ -156,10 +163,22 @@ h3 {
 footer {
     text-align: center;
     padding: 30px;
+    overflow: hidden;
 }
 
 
 /* FAQ section */
+
+.faq {
+    text-align: center;
+}
+
+.forms {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .faqp {
     text-align: center;
@@ -167,56 +186,25 @@ footer {
 }
 
 form {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 40%;
     margin-top: 100px;
 }
 
-
-/*Pseudo FAQ drop-down menus*/
-
-.dropdown {
-    float: none;
-    align-items: center;
-    overflow: hidden;
-    text-align: center;
+form>* {
+    margin: 0.5rem;
 }
 
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: black;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
+/* Attempt to fix small webpage */
 
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    float: none;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+.outer {
+    display: table;
+    width: 100%;
+    height: 100%;
 }
 
 
