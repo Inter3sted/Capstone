@@ -26,5 +26,5 @@ export default (state) => html `<section id="Services">
     </div></div>
   </div>
     </div>
-
-    </div>`;
+    </div>
+  `;
