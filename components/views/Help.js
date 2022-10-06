@@ -1,5 +1,4 @@
 import html from "html-literal";
-import droneB from "../../assets/pexels-spencer-davis-4771595.jpg";
 export default (state) => html `
 
 <h1 class="faq">Frequently Asked Questions</h1>
@@ -24,5 +23,5 @@ export default (state) => html `
     </form>
     </div>
 
-    <img src='${droneB}' alt="female" />
+
 `;
