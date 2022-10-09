@@ -12,8 +12,36 @@ body {
 body {
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(45deg, white, aliceblue);
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
     background-repeat: no-repeat;
+}
+
+
+/* Video */
+
+#droney {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    border: 1px solid purple;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story {
+    border: 1px solid black;
+    margin: 15%;
+    padding: 25px;
+    justify-content: center;
+    text-align: center;
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    z-index: 1;
+    margin-top: 50px;
 }
 
 
@@ -48,6 +76,7 @@ body {
     padding: 20px;
     text-align: center;
     transform: translateY(100px);
+    transform: translateZ(20px);
     opacity: 0;
     transition: 0.5s;
     font-size: 2em;
@@ -168,6 +197,7 @@ footer {
     text-align: center;
     padding: 30px;
     overflow: hidden;
+    margin-bottom: 5px;
 }
 
 

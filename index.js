@@ -40,27 +40,20 @@ router.hooks({
         switch (view) {
             case "Map":
                 axios
-                    .get(
-                        `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st%20louis`
-                    )
+                    .get(`https://pro.openweathermap.org/data/2.5/forecast/daily?lat=38.627003&lon=-90.199402&cnt=16&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
                     .then(response => {
-                        const kelvinToFahrenheit = kelvinTemp =>
-                            Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
-
                         store.Map.weather = {};
-                        store.Map.weather.city = response.data.name;
-                        store.Map.weather.temp = kelvinToFahrenheit(
-                            response.data.main.temp
-                        );
-                        store.Map.weather.feelsLike = kelvinToFahrenheit(
-                            response.data.main.feels_like
-                        );
-                        store.Map.weather.description = response.data.weather[0].main;
-
+                        store.Map.weather.city = response.data.city.name;
+                        store.Map.weather.description = response.data.list[0].weather[0].description;
+                        store.Map.weather.temp = Math.round(response.data.list[0].temp.day);
+                        store.Map.weather.speed = response.data.list[0].speed;
                         console.log(response.data);
                         done();
                     })
-                    .catch(err => console.log(err));
+                    .catch((err) => {
+                        console.log(err);
+                        done();
+                    });
                 break;
             default:
                 done();
