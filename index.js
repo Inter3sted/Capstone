@@ -31,8 +31,8 @@ async function afterRender(state) {
         const map = new mapboxgl.Map({
             container: `map`,
             style: `mapbox://styles/mapbox/streets-v11`,
-            center: [-86.78266047511858, 36.16525000567188],
-            zoom: 10,
+            center: [-90.199402, 38.627003],
+            zoom: 8,
             projection: "globe"
         });
         map.on("load", () => {
