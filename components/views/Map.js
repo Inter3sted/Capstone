@@ -1,7 +1,6 @@
 import html from "html-literal";
 
 export default (state) => html `
-<h2>Map Api</h2>
 <div id="map"></div>
 </section>
 <h3>
