@@ -4,7 +4,7 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
 import dotenv from "dotenv"
-import item from "./assets/pexels-spencer-davis-4771595.jpg"
+import DroneIco from "/assets/DroneIcon.png"
 
 dotenv.config();
 
@@ -31,39 +31,62 @@ async function afterRender(state) {
         const map = new mapboxgl.Map({
             container: `map`,
             style: `mapbox://styles/mapbox/streets-v11`,
-            center: [-90.199402, 38.627003],
-            zoom: 8,
+            center: [-90.247047, 38.636452],
+            zoom: 6,
             projection: "globe"
         });
-        map.on("load", () => {
+        map.on('load', () => {
             // Load an image from an external URL.
-            map.loadImage(`${item}`, (error, image) => {
-                if (error) throw error;
+            map.loadImage(
+                `${DroneIco}`,
+                (error, image) => {
+                    if (error) throw error;
 
-                // Add the image to the map style.
-                map.addImage("case", image);
+                    // Add the image to the map style.
+                    map.addImage('drone', image);
 
-                // Add a data source containing one point feature.
-                map.addSource("places", {
-                    type: "geojson",
-                    data: {
-                        type: "FeatureCollection",
-                        features: state.cases
-                    }
+                    // Add a data source containing one point feature.
+                    map.addSource("places", {
+                        type: "geojson",
+                        data: {
+                            type: "FeatureCollection",
+                            features: state.cases
+                        }
+                    });
+                    map.addSource('point', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'FeatureCollection',
+                            'features': [{
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-90.199402, 38.627003]
+                                }
+                            }]
+                        }
+                    });
+                    map.addLayer({
+                        'id': 'points',
+                        'type': 'symbol',
+                        'source': 'point', // reference the data source
+                        'layout': {
+                            'icon-image': 'drone', // reference the image
+                            'icon-size': 0.15
+                        }
+                    });
+                    map.addLayer({
+                        id: "places",
+                        type: "circle",
+                        source: "places",
+                        paint: {
+                            "circle-color": "#4264fb",
+                            "circle-radius": 6,
+                            "circle-stroke-width": 2,
+                            "circle-stroke-color": "#ffffff"
+                        }
+                    });
                 });
-
-                map.addLayer({
-                    id: "places",
-                    type: "circle",
-                    source: "places",
-                    paint: {
-                        "circle-color": "#4264fb",
-                        "circle-radius": 6,
-                        "circle-stroke-width": 2,
-                        "circle-stroke-color": "#ffffff"
-                    }
-                });
-            });
             // Create a popup, but don't add it to the map yet.
             const popup = new mapboxgl.Popup({
                 closeButton: false,
@@ -115,12 +138,16 @@ router.hooks({
                 axios
                     .get(`https://pro.openweathermap.org/data/2.5/forecast/daily?lat=38.627003&lon=-90.199402&cnt=16&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
                     .then(response => {
+                        //     const rec1 = store.Map.weather]; rec1.forEach(rec1 => console.log(rec1));
+                        // `store.map.weather[${i}] =  response.data.weather[i]`;
+
                         store.Map.weather = {};
+                        store.Map.forecast = response.data.list;
                         store.Map.weather.city = response.data.city.name;
                         store.Map.weather.description = response.data.list[0].weather[0].description;
                         store.Map.weather.temp = Math.round(response.data.list[0].temp.day);
                         store.Map.weather.speed = response.data.list[0].speed;
-                        console.log(response.data);
+                        console.log(store.Map.forecast);
                         done();
 
                     })
@@ -142,7 +169,3 @@ router.on({
         },
     })
     .resolve();
-
-function togglePopup() {
-    document.getElementById("popup-1").classList.toggle("active");
-}
