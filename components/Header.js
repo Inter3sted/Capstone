@@ -5,4 +5,5 @@ export default (state) => html `<header>
     <span class="material-symbols-outlined">
 account_circle
 </span>
+
 </header>`;

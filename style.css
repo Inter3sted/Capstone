@@ -12,12 +12,62 @@ body {
 body {
     margin: 0;
     padding: 0;
-    background-color: #FFD580;
+    background-color: #000;
     background-repeat: no-repeat;
+    color: white;
+}
+
+#droco {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 13px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#drocoP {
+    text-align: center;
+    padding: 0 0 1px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.font {
+    color: #000;
 }
 
 #wel {
     text-align: center;
+}
+
+#box {
+    text-decoration-thickness: 20px;
+    border: 5px solid white;
+    width: 50%;
+}
+
+#box2 {
+    text-decoration-thickness: 20px;
+    border: 5px solid white;
+    width: 50%;
+    margin-left: auto;
+}
+
+#box3 {
+    text-decoration-thickness: 20px;
+    border: 5px solid white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 22px 0;
+}
+
+#under {
+    text-align: center;
+    padding: 13px 0 13px 0;
 }
 
 
@@ -27,17 +77,18 @@ body {
     font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
     float: right;
     margin: 5px;
+    color: #8BC6EC;
+    font-size: x-large;
 }
 
-#clicky {
-    text-align: left;
-    background-color: #8BC6EC;
+.material-symbols-outlined-2 {
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 200, 'opsz' 48
 }
 
 
 /* Image */
 
-#droney {
+#droney img {
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -55,8 +106,7 @@ body {
     padding: 25px;
     justify-content: center;
     text-align: center;
-    background-color: #8BC6EC;
-    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    background-color: rgba(44, 44, 44, 0.329);
     z-index: 1;
     margin-top: 50px;
 }
@@ -64,39 +114,6 @@ body {
 .header {
     font-size: 2em;
     margin: 6px;
-}
-
-
-/* Style the button that is used to open and close the collapsible content */
-
-.collapse {
-    background-color: rgba(238, 238, 238, 0.596);
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: center;
-    outline: black;
-    font-size: 25px;
-}
-
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-
-.active,
-.collapsible:hover {
-    background-color: #ccc;
-}
-
-
-/* Style the collapsible content. Note: hidden by default */
-
-.collapsecont {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
 }
 
 
@@ -114,19 +131,43 @@ body {
 
 .legend {
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 35px;
+    padding: 15px 0 35px 0;
 }
 
 .weath {
     text-align: center;
+    padding: 15px 0 35px 0;
+}
+
+#droneA,
+#droneC,
+#droneD {
+    overflow: hidden;
+    display: flex;
+    object-fit: cover;
+}
+
+#clicky {
+    background-color: #8BC6EC;
+    text-align: center;
+    width: 185px;
+    height: 22px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.dark {
+    min-width: 530px;
+    min-height: 430px;
 }
 
 
 /* Everything with glass morphism */
 
 .glass {
-    position: relative;
     display: flex;
     justify-content: center;
     max-width: 1200px;
@@ -142,7 +183,7 @@ body {
     margin: 30px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.425);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -160,6 +201,36 @@ body {
     font-size: 2em;
     pointer-events: auto;
     position: absolute;
+}
+
+
+/* Home screen glass morphism */
+
+.glass2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.glass2 .cards {
+    width: 800px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(13px);
+}
+
+.glass2 .cards .therein {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    text-align: center;
 }
 
 
@@ -248,7 +319,7 @@ nav li a {
 }
 
 nav ul li a:hover {
-    background-color: white;
+    background-color: rgb(215, 249, 255);
     color: black;
 }
 

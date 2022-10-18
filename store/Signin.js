@@ -1,4 +1,4 @@
 export default {
-    header: "Signin",
+    header: "Sign in",
     view: "Signin"
 };

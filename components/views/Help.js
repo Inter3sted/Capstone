@@ -3,12 +3,12 @@ import html from "html-literal";
 export default (state) => html `
 
 <h1 class="faq">Frequently Asked Questions</h1>
-<h3>Question 1</h3>
-<p class="faqp">lorem</p>
-<h3>Question 2</h3>
-<p class="faqp">lorem</p>
-<h3>Question 3</h3>
-<p class="faqp">lorem</p>
+<h3>How does it work?</h3>
+<p class="faqp">We utilize the latest in drone technology, both in the air and ground, to deliver your products to you in a safe and timely manner.Companies use drone delivery to save money, speed up deliveries and provide better service to their customers. Essentially, this innovative tech will revolutionize the way we interact with technology and the world around us.</p>
+<h3>Why haven't I received my delivery?</h3>
+<p class="faqp">Packages can be lost during shipping due to misidentification, poor conditions, and many other reasons. If you look at the map section you should be able to see the weather for the next few days (which determines if we use the air or ground units to deliver, and may extend receiving dates).</p>
+<h3>Why is my payment not going through?</h3>
+<p class="faqp">There could be an issue with your bank, the card itself, our checkout feature not operating and many other things. If you'd like to contact us, we can provide any assistance from our end and work with you to find out a solution.</p>
 <h3>Still have issues? Contact us:</h3>
 <div class="forms">
 <form action="https://formspree.io/f/xjvzwbbp" method="POST">
@@ -23,6 +23,5 @@ export default (state) => html `
   <input type="submit" value="Submit">
     </form>
     </div>
-
 
 `;

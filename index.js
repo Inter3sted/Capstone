@@ -138,16 +138,38 @@ router.hooks({
                 axios
                     .get(`https://pro.openweathermap.org/data/2.5/forecast/daily?lat=38.627003&lon=-90.199402&cnt=16&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
                     .then(response => {
-                        //     const rec1 = store.Map.weather]; rec1.forEach(rec1 => console.log(rec1));
-                        // `store.map.weather[${i}] =  response.data.weather[i]`;
+                        //     console.log(`store.map.weather[${i}] =  response.data.weather[i]`);
+                        // }
+                        // store.Map.weather = {};
+                        // store.Map.forecast = response.data.list;
+                        let list = response.data.list;
+                        let safety = [];
+                        for (let i = 0; i < list.length; i++) {
+                            safety.push({
+                                Temp: list[i].temp.day,
+                                descriptions: list[i].weather[0].descriptions,
+                                speeds: list[i].speed
+                            })
+                        };
+                        console.log(safety);
 
-                        store.Map.weather = {};
-                        store.Map.forecast = response.data.list;
+
+
                         store.Map.weather.city = response.data.city.name;
                         store.Map.weather.description = response.data.list[0].weather[0].description;
                         store.Map.weather.temp = Math.round(response.data.list[0].temp.day);
                         store.Map.weather.speed = response.data.list[0].speed;
-                        console.log(store.Map.forecast);
+                        console.log(list);
+                        // let Maps = [];
+                        // for (let i = 0; i < data.length; i++) {
+                        //     Map.push(
+                        //         {
+                        //             weather: ``,
+                        //             temp: store.Map.weather.[i].temp,
+                        //             speed: `${data[i].speed}`
+                        //         }
+                        //     )
+                        // };
                         done();
 
                     })

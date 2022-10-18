@@ -1,23 +1,22 @@
 import html from "html-literal";
+import droA from "../../assets/pexels-tembela-bohle.jpg"
+export default (state) => html `
 
-export default (state) => html `<section id="Services">
-</section>
-<!-- data-tilt is js tilt, remove if no good -->
 <div class="glass">
   <div class="cards">
-  <img src="https://images.pexels.com/photos/4771595/pexels-photo-4771595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="green landscape image">
+  <img src='${droA}' alt="dark drone" class="dark">
     <div class="therein">
     <h2>Small</h2>
   </div></div>
 
     <div class="cards">
-    <img src="https://images.pexels.com/photos/4771595/pexels-photo-4771595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="green landscape image">
+    <img src='${droA}' alt="dark drone" class="dark">
       <div class = "therein">
       <h2>Medium</h2>
     </div></div>
 
     <div class="cards">
-    <img src="https://images.pexels.com/photos/4771595/pexels-photo-4771595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="green landscape image">
+    <img src='${droA}' alt="dark drone" class="dark">
       <div class = "therein">
       <h2>Large</h2>
     </div></div>

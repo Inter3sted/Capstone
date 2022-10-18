@@ -3,5 +3,6 @@ export default [
     { title: "Map", text: "Map" },
     { title: "Services", text: "Services" },
     { title: "Help", text: "FAQ" },
+    { title: "Signin", text: "Sign in" },
 
 ];
