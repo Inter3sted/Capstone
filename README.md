@@ -2,4 +2,4 @@
 
 ## Overview
 
-This is my capstone project entitled Drone Delivery Service for Savvy Coders.
+This is my capstone project entitled _Drone Delivery Service_ for Savvy Coders.
