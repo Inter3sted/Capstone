@@ -1,6 +1,7 @@
 import html from "html-literal";
 import droIco from "../../assets/DroneIcon.png";
 export default (state) => html `
+
 <div id="map"></div>
 <h2 class="legend">Legend</h2>
 <div id="box3"></div>

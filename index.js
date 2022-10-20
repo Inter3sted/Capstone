@@ -27,6 +27,8 @@ async function afterRender(state) {
     if (state.view === "Map") {
         let mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
+
+
         mapboxgl.accessToken = `${process.env.MAPBOX_TOKEN}`;
         const map = new mapboxgl.Map({
             container: `map`,
@@ -153,8 +155,6 @@ router.hooks({
                         };
                         console.log(safety);
 
-
-
                         store.Map.weather.city = response.data.city.name;
                         store.Map.weather.description = response.data.list[0].weather[0].description;
                         store.Map.weather.temp = Math.round(response.data.list[0].temp.day);
@@ -170,6 +170,7 @@ router.hooks({
                         //         }
                         //     )
                         // };
+
                         done();
 
                     })

@@ -23,7 +23,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 0 0 13px;
-    background: rgba(255, 255, 255, 0.2);
 }
 
 #drocoP {
@@ -32,7 +31,10 @@ body {
     width: 250px;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(255, 255, 255, 0.2);
+}
+
+#Sign {
+    text-align: center;
 }
 
 .font {
@@ -79,10 +81,6 @@ body {
     margin: 5px;
     color: #8BC6EC;
     font-size: x-large;
-}
-
-.material-symbols-outlined-2 {
-    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 200, 'opsz' 48
 }
 
 
@@ -150,13 +148,12 @@ body {
 #clicky {
     background-color: #8BC6EC;
     text-align: center;
-    width: 185px;
-    height: 22px;
+    width: auto;
+    height: auto;
     padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .dark {
@@ -355,6 +352,9 @@ footer {
 .faq {
     text-align: center;
 }
+
+
+/* margin auto gives equal spacing all around */
 
 .forms {
     margin: auto;
