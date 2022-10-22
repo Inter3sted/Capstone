@@ -19,3 +19,8 @@ This is my capstone project entitled _Drone Delivery Service_ for Savvy Coders.
 2. "serve": "parcel index.html",
 3. "app:watch": "nodemon --watch ./server -e js ./server/app.js",
 4. "start": "node ./server/app.js"
+
+In your .env, make sure you have:
+1. a mapbox api key
+2. a openweathermap api key
+3. a connection to Heroku or some other cloud-based that enables an ability to deploy and manage your site (This is used for a self-created API that checks out a few pizzas with their respective toppings)
