@@ -20,7 +20,7 @@ This is my capstone project entitled _Drone Delivery Service_ for Savvy Coders.
 3. "app:watch": "nodemon --watch ./server -e js ./server/app.js",
 4. "start": "node ./server/app.js"
 
-In your .env, make sure you have:
+- In your .env, make sure you have:
 1. a mapbox api key
 2. a openweathermap api key
 
