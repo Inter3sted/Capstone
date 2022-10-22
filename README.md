@@ -25,4 +25,4 @@ In your .env, make sure you have:
 2. a openweathermap api key
 
 > Optional
-4. a connection to Heroku or some other cloud-based that enables an ability to deploy and manage your site (This is used for a self-created API that checks out a few pizzas with their respective toppings)
+3. a connection to Heroku or some other cloud-based that enables an ability to deploy and manage your site (This is used for a self-created API that checks out a few pizzas with their respective toppings)
