@@ -4,7 +4,7 @@
 
 This is my capstone project entitled _Drone Delivery Service_ for Savvy Coders.
 
-## Dependencies
+### Dependencies
 - Use npm to install a few dependencies
 1. axios
 2. dotenv
