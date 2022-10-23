@@ -7,7 +7,7 @@ This is my capstone project entitled _Drone Delivery Service_ for Savvy Coders.
 ### Dependencies
 Use npm to install a few dependencies
 > use npm i -g [whatever the dependency is] | example: "npm i -g axios"
-> 
+
 > -g means it affects or installs/utilizes it on every working directory
 1. axios *(for importing APIs)*
 2. dotenv *(loads the envs from .env)*
