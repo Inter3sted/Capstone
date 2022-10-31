@@ -4,8 +4,8 @@ import * as store from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
-import dotenv from "dotenv"
-import DroneIco from "/assets/DroneIcon.png"
+import dotenv from "dotenv";
+import DroneIco from "/assets/DroneIcon.png";
 
 dotenv.config();
 //
