@@ -1,18 +1,17 @@
 import html from "html-literal";
-
+import droneA from "../../assets/pexels-matic-holobar.jpg";
+import droneC from "../../assets/pexels-josh-sorenson.jpg";
+import droneD from "../../assets/pexels-pixabay.jpg";
 export default () => html `
 <div id="box2"></div>
 <h1 id="wel">D.R.O.N.E</h1>
 <div id="box"></div>
 <h4 id="under">Deliverable Robotic Omni Networking and Engineering</h4>
 
-<!-- figure out why this breaks image code -->
-
-
 <div class="glass2">
   <div class="cards">
     <div id="droneD">
-
+  <img src='${droneD}' alt="green landscape image"></div>
     <div class="therein">
     <h2 class="font">Location</h2>
   </div></div>
@@ -21,7 +20,7 @@ export default () => html `
 </p>
     <div class="cards">
       <div id="droneA">
-
+    <img src='${droneA}' alt="green landscape image"></div>
       <div class = "therein">
       <h2 class="font">Ship</h2>
     </div></div>
@@ -29,7 +28,7 @@ export default () => html `
 </p>
     <div class="cards">
       <div id="droneC">
-
+    <img src='${droneC}' alt="green landscape image"></div>
       <div class = "therein">
       <h2 class="font">Success</h2>
     </div></div>
