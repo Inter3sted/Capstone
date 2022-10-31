@@ -1,8 +1,8 @@
 import html from "html-literal";
 import droA from "../../assets/pexels-tembela-bohle.jpg";
 import droB from "../../assets/pexels-brett-saylesbw.jpg";
-import droC from "../../../assets/pexels-maël-balland.jpg";
-export default (state) => html `
+import droC from "../../assets/pexels-maël-balland.jpg";
+export default () => html `
 
 <div class="glass">
   <div class="cards">
