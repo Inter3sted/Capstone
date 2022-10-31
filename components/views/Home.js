@@ -1,8 +1,5 @@
 import html from "html-literal";
-// import droneB from "../../assets/pexels-darrel-und.jpg";
-import droneA from "../../assets/pexels-matic-holobar.jpg";
-import droneC from "../../assets/pexels-josh-sorenson.jpg";
-import droneD from "../../assets/pexels-pixabay.jpg";
+
 export default () => html `
 <div id="box2"></div>
 <h1 id="wel">D.R.O.N.E</h1>
@@ -15,7 +12,7 @@ export default () => html `
 <div class="glass2">
   <div class="cards">
     <div id="droneD">
-  <img src='${droneD}' alt="green landscape image"></div>
+
     <div class="therein">
     <h2 class="font">Location</h2>
   </div></div>
@@ -24,7 +21,7 @@ export default () => html `
 </p>
     <div class="cards">
       <div id="droneA">
-    <img src='${droneA}' alt="green landscape image"></div>
+
       <div class = "therein">
       <h2 class="font">Ship</h2>
     </div></div>
@@ -32,7 +29,7 @@ export default () => html `
 </p>
     <div class="cards">
       <div id="droneC">
-    <img src='${droneC}' alt="green landscape image"></div>
+
       <div class = "therein">
       <h2 class="font">Success</h2>
     </div></div>
