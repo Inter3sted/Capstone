@@ -1,7 +1,6 @@
 import html from "html-literal";
 import droA from "../../assets/pexels-tembela-bohle.jpg";
-import droB from "../../assets/pexels-brett-saylesbw.jpg";
-import droC from "../../assets/pexels-maël-balland.jpg";
+
 export default () => html `
 
 <div class="glass">
@@ -20,7 +19,7 @@ export default () => html `
     </div></div>
 
     <div class="cards">
-
+    <img src='${droA}' alt="A close-up of a MAVIC drone" class="dark">
       <div class = "therein">
       <h2>Medium</h2>
       <p>$5</p>
