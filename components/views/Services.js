@@ -1,7 +1,7 @@
 import html from "html-literal";
 import droA from "../../assets/pexels-tembela-bohle.jpg";
 import droB from "../../assets/pexels-brett-saylesbw.jpg";
-import droC from "../../assets/pexels-maël-balland.jpg";
+import droC from "../../../assets/pexels-maël-balland.jpg";
 export default (state) => html `
 
 <div class="glass">
