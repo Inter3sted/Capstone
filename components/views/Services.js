@@ -15,15 +15,15 @@ export default () => html `
   <div class="cards">
     <img src='${droA}' alt="A drone in the distance flying over trees with clouds in the background" class="dark">
       <div class = "therein">
-      <h2>Large</h2>
-      <p>$6</p>
+      <h2>Medium</h2>
+      <p>$5</p>
     </div></div>
 
     <div class="cards">
     <img src='${droC}' alt="A close-up of a MAVIC drone" class="dark">
       <div class = "therein">
-      <h2>Medium</h2>
-      <p>$5</p>
+      <h2>Large</h2>
+      <p>$6</p>
     </div></div>
 
   </div>
