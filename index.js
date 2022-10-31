@@ -1,3 +1,4 @@
+// Always need to specify where modules should be imported from, unlike exports
 import { Header, Nav, Main, Footer } from "./components";
 import * as store from "./store";
 import Navigo from "navigo";
@@ -7,9 +8,9 @@ import dotenv from "dotenv"
 import DroneIco from "/assets/DroneIcon.png"
 
 dotenv.config();
-
+//
 const router = new Navigo("/");
-
+// This is so that the default view is the Home view
 function render(state = store.Home) {
     document.querySelector("#root").innerHTML = `
     ${Header(state)}
@@ -38,6 +39,28 @@ async function afterRender(state) {
             projection: "globe"
         });
         map.on('load', () => {
+
+            // Add a data source containing one point feature.
+            map.addSource('places', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': state.cases
+                }
+            });
+            map.addSource('point', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [{
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-90.199402, 38.627003]
+                        }
+                    }]
+                }
+            });
             // Load an image from an external URL.
             map.loadImage(
                 `${DroneIco}`,
@@ -46,28 +69,6 @@ async function afterRender(state) {
 
                     // Add the image to the map style.
                     map.addImage('drone', image);
-
-                    // Add a data source containing one point feature.
-                    map.addSource("places", {
-                        type: "geojson",
-                        data: {
-                            type: "FeatureCollection",
-                            features: state.cases
-                        }
-                    });
-                    map.addSource('point', {
-                        'type': 'geojson',
-                        'data': {
-                            'type': 'FeatureCollection',
-                            'features': [{
-                                'type': 'Feature',
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [-90.199402, 38.627003]
-                                }
-                            }]
-                        }
-                    });
                     map.addLayer({
                         'id': 'points',
                         'type': 'symbol',
@@ -78,10 +79,10 @@ async function afterRender(state) {
                         }
                     });
                     map.addLayer({
-                        id: "places",
-                        type: "circle",
-                        source: "places",
-                        paint: {
+                        'id': 'places',
+                        'type': 'circle',
+                        'source': 'places',
+                        'paint': {
                             "circle-color": "#4264fb",
                             "circle-radius": 6,
                             "circle-stroke-width": 2,
@@ -95,7 +96,7 @@ async function afterRender(state) {
                 closeOnClick: false
             });
 
-            map.on("mouseenter", "places", e => {
+            map.on('mouseenter', 'places', e => {
                 // Change the cursor style as a UI indicator.
                 map.getCanvas().style.cursor = "pointer";
 
@@ -148,28 +149,20 @@ router.hooks({
                         let safety = [];
                         for (let i = 0; i < list.length; i++) {
                             safety.push({
-                                Temp: list[i].temp.day,
-                                descriptions: list[i].weather[0].descriptions,
-                                speeds: list[i].speed
+                                temp: list[i].temp.day,
+                                precipitation: list[i].pop,
+                                descriptions: list[i].weather[0].description,
+                                speeds: list[i].speed,
+                                icons: list[i].weather[0].icon
                             })
+
                         };
                         console.log(safety);
 
+                        store.Map.safety = safety;
                         store.Map.weather.city = response.data.city.name;
-                        store.Map.weather.description = response.data.list[0].weather[0].description;
-                        store.Map.weather.temp = Math.round(response.data.list[0].temp.day);
-                        store.Map.weather.speed = response.data.list[0].speed;
+
                         console.log(list);
-                        // let Maps = [];
-                        // for (let i = 0; i < data.length; i++) {
-                        //     Map.push(
-                        //         {
-                        //             weather: ``,
-                        //             temp: store.Map.weather.[i].temp,
-                        //             speed: `${data[i].speed}`
-                        //         }
-                        //     )
-                        // };
 
                         done();
 
@@ -184,6 +177,7 @@ router.hooks({
         }
     }
 });
+// adds callback structure that, when the URL matches whatever is given the /, the router or argument turns itself on and it uses lodash to capitalize whatever the corresponding state is
 router.on({
         "/": () => render(),
         ":view": (params) => {
@@ -191,4 +185,5 @@ router.on({
             render(store[view]);
         },
     })
+    // resolve is at the end to use the client side's routing process
     .resolve();

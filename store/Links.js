@@ -2,7 +2,5 @@ export default [
     { title: "Home", text: "Home" },
     { title: "Map", text: "Map" },
     { title: "Services", text: "Services" },
-    { title: "Help", text: "FAQ" },
-    { title: "Signin", text: "Sign in" },
-
+    { title: "Help", text: "FAQ" }
 ];
