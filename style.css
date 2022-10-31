@@ -1,7 +1,19 @@
+/* anything before the curly brace is the selector and anything inside is the property of said selector */
+
+
+/* em is relative to the parent, similar to %, rem is relative to the root */
+
+
+/* vw = viewport width, vh = viewport height */
+
+
+/*Document style*/
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 html,
@@ -12,15 +24,105 @@ body {
 body {
     margin: 0;
     padding: 0;
-    background-color: #8BC6EC;
-    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    background-color: #000;
     background-repeat: no-repeat;
+    color: white;
+}
+
+.font {
+    color: #fff;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 13vw;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.header {
+    font-size: 2em;
+    margin: 6px;
+}
+
+.dark {
+    min-height: 100%;
+    object-fit: cover;
 }
 
 
-/* Video */
+/* Map drone icon and legend key */
 
-#droney {
+#droco {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 13px;
+}
+
+#drocoP {
+    text-align: center;
+    padding: 0 0 1px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Home page left box - line */
+
+#box {
+    text-decoration-thickness: 20px;
+    border: 5px solid white;
+    width: 50%;
+}
+
+
+/* Home page right box - line */
+
+#box2 {
+    text-decoration-thickness: 20px;
+    border: 5px solid white;
+    width: 50%;
+    margin-left: auto;
+}
+
+
+/* Map page separator */
+
+#box3 {
+    text-decoration-thickness: 20px;
+    border: 5px solid white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Title or Header */
+
+#wel {
+    text-align: center;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 65px;
+    font-weight: 500;
+    font-stretch: expanded;
+    letter-spacing: 10px;
+}
+
+
+/* Acronym spelled out */
+
+#under {
+    text-align: center;
+    padding: 13px 0 13px 0;
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 500;
+}
+
+
+/* Image */
+
+#droney img {
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -32,30 +134,80 @@ body {
     align-items: center;
 }
 
+
+/* Home page business explanation */
+
 .story {
     border: 1px solid black;
     margin: 15%;
     padding: 25px;
     justify-content: center;
     text-align: center;
-    background-color: #8BC6EC;
-    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    background-color: rgba(44, 44, 44, 0.329);
     z-index: 1;
     margin-top: 50px;
 }
 
+
+/* careful with percentages */
+
+
+/* Puts mapbox's map onto map view */
+
 #map {
     width: 100%;
-    height: 70%;
-    position: absolute;
-    display: block;
+    height: 500px;
+}
+
+
+/* Legend header*/
+
+.legend {
+    text-align: center;
+    padding: 15px 0 35px 0;
+    font-size: 56px;
+}
+
+
+/* Weather header, underneath "main drone facility" */
+
+#weather {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+th,
+td {
+    padding: 6px 10px 0 16px;
+    border: 1px solid white;
+}
+
+th {
+    font-size: 20px;
+}
+
+.weath {
+    text-align: center;
+    padding: 15px 0 35px 0;
+    font-size: 56px;
+}
+
+#droneBanner {
+    background-color: #8BC6EC;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 /* Everything with glass morphism */
 
 .glass {
-    position: relative;
     display: flex;
     justify-content: center;
     max-width: 1200px;
@@ -68,15 +220,15 @@ body {
     position: relative;
     width: 280px;
     height: 400px;
-    margin: 30px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.425);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
+    margin: 30px;
 }
 
 .glass .cards .therein {
@@ -89,6 +241,46 @@ body {
     font-size: 2em;
     pointer-events: auto;
     position: absolute;
+}
+
+
+/* Minor image tweaks for home view */
+
+#droneA,
+#droneC,
+#droneD {
+    overflow: hidden;
+    display: flex;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+
+/* Home screen glass morphism */
+
+.glass2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.glass2 .cards {
+    height: 197px;
+    -webkit-backdrop-filter: blur(13px);
+    backdrop-filter: blur(13px);
+    background: rgba(8, 8, 8, 0.534);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 10px #00000080;
+    width: 100%;
+}
+
+.glass2 .cards .therein {
+    position: absolute;
+    text-align: center;
 }
 
 
@@ -148,10 +340,6 @@ nav {
     background-color: black;
 }
 
-nav>.fa-bars {
-    display: none;
-}
-
 
 /* Removes the dot before each nav element*/
 
@@ -169,6 +357,9 @@ nav li {
     font-size: 15px;
 }
 
+
+/* removes lines underneath list items */
+
 nav li a {
     text-decoration: none;
     color: white;
@@ -177,21 +368,8 @@ nav li a {
 }
 
 nav ul li a:hover {
-    background-color: white;
+    background-color: rgb(215, 249, 255);
     color: black;
-}
-
-main h1 {
-    text-align: center;
-}
-
-form {
-    padding: 1rem;
-    text-align: center;
-}
-
-.center {
-    padding: 35px;
 }
 
 h3 {
@@ -214,25 +392,39 @@ footer {
     text-align: center;
 }
 
+
+/* margin auto gives equal spacing all around */
+
 .forms {
-    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.help {
+    font-size: 22px;
+    text-decoration: underline;
+}
+
 .faqp {
     text-align: center;
     padding: 3px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18px;
 }
 
 form {
-    border: solid 1px black;
     display: flex;
     flex-direction: column;
-    margin: 1rem;
     width: 60%;
-    margin-top: 100px;
+    margin-top: 23px;
+    padding: 1rem;
+    text-align: center;
 }
 
 form>* {
@@ -240,13 +432,7 @@ form>* {
 }
 
 
-/* Attempt to fix small webpage */
-
-.outer {
-    display: table;
-    width: 100%;
-    height: 100%;
-}
+/* This media query adjusts to fit slightly smaller than iPhone 6/7/8 models */
 
 @media(max-width: 360px) {
     nav {}

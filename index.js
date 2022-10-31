@@ -1,15 +1,16 @@
+// Always need to specify where modules should be imported from, unlike exports
 import { Header, Nav, Main, Footer } from "./components";
 import * as store from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
 import dotenv from "dotenv"
-import item from "./assets/pexels-spencer-davis-4771595.jpg"
+import DroneIco from "/assets/DroneIcon.png"
 
 dotenv.config();
-
+//
 const router = new Navigo("/");
-
+// This is so that the default view is the Home view
 function render(state = store.Home) {
     document.querySelector("#root").innerHTML = `
     ${Header(state)}
@@ -27,50 +28,75 @@ async function afterRender(state) {
     if (state.view === "Map") {
         let mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
+
+
         mapboxgl.accessToken = `${process.env.MAPBOX_TOKEN}`;
         const map = new mapboxgl.Map({
             container: `map`,
             style: `mapbox://styles/mapbox/streets-v11`,
-            center: [-90.199402, 38.627003],
-            zoom: 8,
+            center: [-90.247047, 38.636452],
+            zoom: 6,
             projection: "globe"
         });
-        map.on("load", () => {
-            // Load an image from an external URL.
-            map.loadImage(`${item}`, (error, image) => {
-                if (error) throw error;
+        map.on('load', () => {
 
-                // Add the image to the map style.
-                map.addImage("case", image);
-
-                // Add a data source containing one point feature.
-                map.addSource("places", {
-                    type: "geojson",
-                    data: {
-                        type: "FeatureCollection",
-                        features: state.cases
-                    }
-                });
-
-                map.addLayer({
-                    id: "places",
-                    type: "circle",
-                    source: "places",
-                    paint: {
-                        "circle-color": "#4264fb",
-                        "circle-radius": 6,
-                        "circle-stroke-width": 2,
-                        "circle-stroke-color": "#ffffff"
-                    }
-                });
+            // Add a data source containing one point feature.
+            map.addSource('places', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': state.cases
+                }
             });
+            map.addSource('point', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': [{
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [-90.199402, 38.627003]
+                        }
+                    }]
+                }
+            });
+            // Load an image from an external URL.
+            map.loadImage(
+                `${DroneIco}`,
+                (error, image) => {
+                    if (error) throw error;
+
+                    // Add the image to the map style.
+                    map.addImage('drone', image);
+                    map.addLayer({
+                        'id': 'points',
+                        'type': 'symbol',
+                        'source': 'point', // reference the data source
+                        'layout': {
+                            'icon-image': 'drone', // reference the image
+                            'icon-size': 0.15
+                        }
+                    });
+                    map.addLayer({
+                        'id': 'places',
+                        'type': 'circle',
+                        'source': 'places',
+                        'paint': {
+                            "circle-color": "#4264fb",
+                            "circle-radius": 6,
+                            "circle-stroke-width": 2,
+                            "circle-stroke-color": "#ffffff"
+                        }
+                    });
+                });
             // Create a popup, but don't add it to the map yet.
             const popup = new mapboxgl.Popup({
                 closeButton: false,
                 closeOnClick: false
             });
 
-            map.on("mouseenter", "places", e => {
+            map.on('mouseenter', 'places', e => {
                 // Change the cursor style as a UI indicator.
                 map.getCanvas().style.cursor = "pointer";
 
@@ -115,12 +141,29 @@ router.hooks({
                 axios
                     .get(`https://pro.openweathermap.org/data/2.5/forecast/daily?lat=38.627003&lon=-90.199402&cnt=16&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&units=imperial`)
                     .then(response => {
-                        store.Map.weather = {};
+                        //     console.log(`store.map.weather[${i}] =  response.data.weather[i]`);
+                        // }
+                        // store.Map.weather = {};
+                        // store.Map.forecast = response.data.list;
+                        let list = response.data.list;
+                        let safety = [];
+                        for (let i = 0; i < list.length; i++) {
+                            safety.push({
+                                temp: list[i].temp.day,
+                                precipitation: list[i].pop,
+                                descriptions: list[i].weather[0].description,
+                                speeds: list[i].speed,
+                                icons: list[i].weather[0].icon
+                            })
+
+                        };
+                        console.log(safety);
+
+                        store.Map.safety = safety;
                         store.Map.weather.city = response.data.city.name;
-                        store.Map.weather.description = response.data.list[0].weather[0].description;
-                        store.Map.weather.temp = Math.round(response.data.list[0].temp.day);
-                        store.Map.weather.speed = response.data.list[0].speed;
-                        console.log(response.data);
+
+                        console.log(list);
+
                         done();
 
                     })
@@ -134,6 +177,7 @@ router.hooks({
         }
     }
 });
+// adds callback structure that, when the URL matches whatever is given the /, the router or argument turns itself on and it uses lodash to capitalize whatever the corresponding state is
 router.on({
         "/": () => render(),
         ":view": (params) => {
@@ -141,8 +185,5 @@ router.on({
             render(store[view]);
         },
     })
+    // resolve is at the end to use the client side's routing process
     .resolve();
-
-function togglePopup() {
-    document.getElementById("popup-1").classList.toggle("active");
-}
