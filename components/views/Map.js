@@ -21,6 +21,3 @@ return html`<tr><th>Temp</th><th>Chance of Precipitation</th><th>Description</th
 }).join("")}
 </table>
 `;
-
-// index 0 is array within array, pass
-// index 1 caption// for popup, in bind
